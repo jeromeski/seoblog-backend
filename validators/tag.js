@@ -1,8 +1,8 @@
 const { check } = require('express-validator');
 
-exports.categoryCreateValidator = [
+exports.tagCreateValidator = [
   check('name')
     .not()
     .isEmpty()
-    .withMessage('Category name is required')
+    .withMessage('Tag name is required')
 ];
