@@ -9,6 +9,8 @@ require('dotenv').config();
 // bring routes
 const blogRoutes = require('./routes/blog');
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
+const categoryRoutes = require('./routes/category');
 
 // app
 const app = express();
@@ -26,6 +28,7 @@ mongoose
 // middlewares
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 // cors
 if (process.env.NODE_ENV === 'development') {
@@ -35,6 +38,8 @@ if (process.env.NODE_ENV === 'development') {
 // routes middleware
 app.use('/api', blogRoutes);
 app.use('/api', authRoutes);
+app.use('/api', userRoutes);
+app.use('/api', categoryRoutes);
 
 // port
 const port = process.env.PORT || 8000;
