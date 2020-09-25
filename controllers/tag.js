@@ -10,11 +10,12 @@ exports.create = (req, res) => {
 
   tag.save((err, data) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         error: errorHandler(err)
       });
     }
-    res.json(data);
+    res.json(data); // dont do this res.json({ tag: data });
   });
 };
 
@@ -31,10 +32,11 @@ exports.list = (req, res) => {
 
 exports.read = (req, res) => {
   const slug = req.params.slug.toLowerCase();
+
   Tag.findOne({ slug }).exec((err, tag) => {
     if (err) {
       return res.status(400).json({
-        error: errorHandler(err)
+        error: 'Tag not found'
       });
     }
     res.json(tag);
@@ -43,6 +45,7 @@ exports.read = (req, res) => {
 
 exports.remove = (req, res) => {
   const slug = req.params.slug.toLowerCase();
+
   Tag.findOneAndRemove({ slug }).exec((err, data) => {
     if (err) {
       return res.status(400).json({
