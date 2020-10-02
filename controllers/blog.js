@@ -174,11 +174,12 @@ exports.listAllBlogsCategoriesTags = (req, res) => {
 exports.read = (req, res) => {
   const slug = req.params.slug.toLowerCase();
   Blog.findOne({ slug })
+    // .select("-photo")
     .populate('categories', '_id name slug')
     .populate('tags', '_id name slug')
     .populate('postedBy', '_id name username')
     .select(
-      '_id title slug mtitle mdesc categories tags postedBy createdAt updatedAt'
+      '_id title body slug mtitle mdesc categories tags postedBy createdAt updatedAt'
     )
     .exec((err, data) => {
       if (err) {
