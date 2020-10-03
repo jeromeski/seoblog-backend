@@ -7,7 +7,8 @@ const {
   read,
   remove,
   update,
-  photo
+  photo,
+  listRelated
 } = require('../controllers/blog');
 
 const { requireSignin, adminMiddleware } = require('../controllers/auth');
