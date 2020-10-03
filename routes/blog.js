@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const {
-  create,
-  list,
-  listAllBlogsCategoriesTags,
-  read,
-  remove,
-  update,
-  photo,
-  listRelated
+    create,
+    list,
+    listAllBlogsCategoriesTags,
+    read,
+    remove,
+    update,
+    photo,
+    listRelated
 } = require('../controllers/blog');
 
 const { requireSignin, adminMiddleware } = require('../controllers/auth');
