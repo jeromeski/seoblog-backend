@@ -5,7 +5,7 @@ const {
   authMiddleware,
   adminMiddleware
 } = require('../controllers/auth');
-const { photo } = require('../controllers/blog');
+
 const { read, publicProfile, update, photo } = require('../controllers/user');
 
 router.get('/profile', requireSignin, authMiddleware, read);
