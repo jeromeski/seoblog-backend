@@ -28,7 +28,7 @@ exports.contactForm = (req, res) => {
         success: true
       });
     })
-    .catch(err => console.log('ERR'));
+    .catch(err => console.error(error.toString()));
 };
 
 exports.contactBlogAuthorForm = (req, res) => {
@@ -60,5 +60,5 @@ exports.contactBlogAuthorForm = (req, res) => {
         success: true
       });
     })
-    .catch(err => console.log('ERR'));
+    .catch(err => console.error(error.toString()));
 };
